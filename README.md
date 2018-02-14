@@ -45,6 +45,11 @@
 ex1_lev3:{ex1_var1:22,ex1_var2:55,ex1_lev4:{ex1_var1:11,ex1_var2:99}}}],intVar1:11,intVar2:333}
 </pre>
 
+<b>Sample Comparsion with Newtonsoft Dll conversion:-</b> 
+<img src="Snaps/Snap1.png"/>
+<img src="Snaps/Snap2.png"/>
+<img src="Snaps/Snap3.png"/>
+
 Will add more here.
 
 Thx for stopping by :)
