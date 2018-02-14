@@ -33,5 +33,20 @@ namespace JsonStringify
     {
         public int ex1_var1 { get; set; }
         public int ex1_var2 { get; set; }
+        public Level5 ex5_lev5 { get; set; }
     }
+
+    public class Level5
+    {
+        public int le5_ex1_var1 { get; set; }
+        public int le5_ex1_var2 { get; set; }
+        public Level6 ex1_lev6 { get; set; }
+    }
+
+    public class Level6
+    {
+        public int le5_ex1_var1 { get; set; }
+        public int le5_ex1_var2 { get; set; }
+    }
+
 }

@@ -2,3 +2,10 @@ F:\PERSONAL\PRACTICAL EX - 1\JsonStringify\JsonStringify\bin\Debug\JsonStringify
 F:\PERSONAL\PRACTICAL EX - 1\JsonStringify\JsonStringify\bin\Debug\JsonStringify.pdb
 F:\PERSONAL\PRACTICAL EX - 1\JsonStringify\JsonStringify\obj\x86\Debug\JsonStringify.exe
 F:\PERSONAL\PRACTICAL EX - 1\JsonStringify\JsonStringify\obj\x86\Debug\JsonStringify.pdb
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\obj\x86\Debug\JsonStringify.exe
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\obj\x86\Debug\JsonStringify.pdb
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\bin\Debug\JsonStringify.exe
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\bin\Debug\JsonStringify.pdb
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BETA\Documents\GitHub\JsonStringify\JsonStringify\obj\x86\Debug\JsonStringify.csprojResolveAssemblyReference.cache

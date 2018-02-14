@@ -8,10 +8,14 @@ namespace JsonStringify
 {
     public class Converter
     {
-        public static string StringifyJson(Type rootType, Object rootObj)
+        public static string StringifyJson(Object rootObj)
         {
-            var stringObj = ConvertObjToJsonString(rootType, rootObj);
-            stringObj = stringObj.Trim().Replace(" ", "").Replace(",,", ",");
+            var stringObj = ConvertObjToJsonString(rootObj.GetType(), rootObj);
+            stringObj = stringObj.Trim().Replace(" ", "");
+            
+            while (stringObj.IndexOf(",,") > 0)
+                stringObj = stringObj.Replace(",,", ",");
+
             return stringObj;
         }
 
@@ -65,18 +69,17 @@ namespace JsonStringify
                             stringifiedJson += "\"" + prop.Name + "\":[" + collectionStringfy + "]";
                         }
                     }
+
                 }
                 else  //if it is single obj                    
                 {
-                    if (rootType.Name != prop.PropertyType.Name)  //Self recursion here
+                    var targetObjValue = prop.GetValue(rootObj, null);
+
+                    if (targetObjValue != null) //&& rootType.Name != prop.PropertyType.Name)  //Self recursion here
                     {
-                        var targetObjValue = prop.GetValue(rootObj, null);
-                        if (targetObjValue != null)
-                        {
-                            var stringfiedObj = ConvertObjToJsonString(prop.PropertyType, targetObjValue);
-                            if (stringfiedObj != null)
-                                stringifiedJson += "\"" + prop.Name + "\":" + stringfiedObj;
-                        }
+                        var stringfiedObj = ConvertObjToJsonString(prop.PropertyType, targetObjValue);
+                        if (stringfiedObj != null)
+                            stringifiedJson += "\"" + prop.Name + "\":" + stringfiedObj;
                     }
                 }
 
