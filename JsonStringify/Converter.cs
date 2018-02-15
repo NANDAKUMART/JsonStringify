@@ -16,6 +16,7 @@ namespace JsonStringify
             while (stringObj.IndexOf(",,") > 0)
                 stringObj = stringObj.Replace(",,", ",");
 
+            stringObj = stringObj.Replace(",}", "}");
             return stringObj;
         }
 
