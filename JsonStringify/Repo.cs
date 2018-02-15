@@ -7,6 +7,11 @@ namespace JsonStringify
 {
     public class Ex
     {
+        public string[] strArr { get; set; }
+        public int[] intArr { get; set; }
+        public EX1[] arrslfObjList { get; set; }
+        public IEnumerable<EX1> enumslfObjList { get; set; }
+
         public float floatVar { get; set; }
         public string strVar { get; set; }
         public Ex slfObj { get; set; }
@@ -17,6 +22,7 @@ namespace JsonStringify
 
     public class EX1
     {
+        public Level6[] level6ObjList { get; set; }
         public int ex1_var1 { get; set; }
         public int ex1_var2 { get; set; }
         public Level3 ex1_lev3 { get; set; }
@@ -47,6 +53,13 @@ namespace JsonStringify
     {
         public int le5_ex1_var1 { get; set; }
         public int le5_ex1_var2 { get; set; }
+        public List<Level7> level7ObjList { get; set; }
+    }
+
+    public class Level7
+    {
+        public int le7_ex1_var1 { get; set; }
+        public int le7_ex1_var2 { get; set; }
     }
 
 }

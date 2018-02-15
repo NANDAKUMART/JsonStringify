@@ -18,6 +18,10 @@ namespace JsonStringify
 
                 Ex exObj = new Ex()
                 {
+                    enumslfObjList = new List<EX1>() { new EX1() { ex1_var1 = 9, ex1_var2 = 10 } },
+                    strArr = new string[] { "a", "b" },
+                    intArr = new int[] { 1, 2, 3, 4 },
+                    arrslfObjList = new EX1[] { new EX1() { ex1_var1 = 1, ex1_var2 = 2, level6ObjList = new Level6[] { new Level6() { le5_ex1_var1 = 11, le5_ex1_var2 = 22 }, new Level6() { le5_ex1_var1 = 11, le5_ex1_var2 = 22, level7ObjList = new List<Level7>() { new Level7() { le7_ex1_var1 = 71, le7_ex1_var2 = 72 } } } } } },
                     floatVar = 232.354F,
                     strVar = "sometexthere",
                     slfObj = new Ex(),
@@ -225,36 +229,8 @@ namespace JsonStringify
                 };
 
 
-
-
                 var t1 = DateTime.Now;
-                var str = "";
-
-                if (i == 1)
-                    str = JsonConvert.SerializeObject(exObj);
-                else if (i == 2)
-                    str = JsonConvert.SerializeObject(exObj1);
-                else if (i == 3)
-                    str = JsonConvert.SerializeObject(exObj2);
-                else if (i == 4)
-                    str = JsonConvert.SerializeObject(exObj3);
-                else if (i == 5)
-                    str = JsonConvert.SerializeObject(exObj4);
-                else if (i == 6)
-                    str = JsonConvert.SerializeObject(exObj5);
-                else if (i == 7)
-                    str = JsonConvert.SerializeObject(exObj6);
-                else if (i == 8)
-                    str = JsonConvert.SerializeObject(exObj7);
-                else if (i == 9)
-                    str = JsonConvert.SerializeObject(exObj8);
-                else if (i == 10)
-                    str = JsonConvert.SerializeObject(exObj9);
-
-                var t2 = DateTime.Now.Subtract(t1).TotalMilliseconds;
-                Console.WriteLine("Total Time:" + t2);
-                Console.WriteLine(str);
-
+                var t2 = 0.0D;
                 t1 = DateTime.Now;
                 var stringifiedTxt = "";
 
@@ -279,11 +255,38 @@ namespace JsonStringify
                 else if (i == 10)
                     stringifiedTxt = Converter.StringifyJson(exObj9);
 
-
                 t2 = DateTime.Now.Subtract(t1).TotalMilliseconds;
-                Console.WriteLine("\n\n Total Time:" + t2);
+                Console.WriteLine("\n\n Total Time for custom:" + t2);
                 Console.WriteLine(stringifiedTxt);
 
+
+                t1 = DateTime.Now;
+                stringifiedTxt = "";
+
+                if (i == 1)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj);
+                else if (i == 2)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj1);
+                else if (i == 3)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj2);
+                else if (i == 4)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj3);
+                else if (i == 5)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj4);
+                else if (i == 6)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj5);
+                else if (i == 7)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj6);
+                else if (i == 8)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj7);
+                else if (i == 9)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj8);
+                else if (i == 10)
+                    stringifiedTxt = JsonConvert.SerializeObject(exObj9);
+
+                t2 = DateTime.Now.Subtract(t1).TotalMilliseconds;
+                Console.WriteLine("\n\n Total Time for Newtonsoft:" + t2);
+                Console.WriteLine(stringifiedTxt);
 
             }
             Console.ReadLine();

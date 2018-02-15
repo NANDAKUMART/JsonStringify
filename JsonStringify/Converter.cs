@@ -12,7 +12,7 @@ namespace JsonStringify
         {
             var stringObj = ConvertObjToJsonString(rootObj.GetType(), rootObj);
             stringObj = stringObj.Trim().Replace(" ", "");
-            
+
             while (stringObj.IndexOf(",,") > 0)
                 stringObj = stringObj.Replace(",,", ",");
 
@@ -44,6 +44,49 @@ namespace JsonStringify
                             currentStr = "\"" + prop.Name + "\":" + targetVal;
                         }
                         stringifiedJson += currentStr;
+                    }
+                }
+                else if (prop.PropertyType.IsArray)
+                {
+                    var underlyingType = prop.PropertyType.GetElementType();
+                    var targetObjValue = prop.GetValue(rootObj, null);
+                    var typedList = (targetObjValue as IEnumerable);
+                    var collectionStringfy = "";
+
+                    if (typedList != null)
+                    {
+                        if (underlyingType.IsPrimitive || underlyingType.Name.ToLower() == "string")
+                        {
+                            foreach (var val in typedList)
+                            {
+                                if (collectionStringfy.Length > 0)
+                                    collectionStringfy += ",";
+
+                                if (underlyingType.Name.ToLower() == "string")
+                                {
+                                    collectionStringfy += "\"" + val + "\"";
+                                }
+                                else
+                                {
+                                    collectionStringfy += val;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            foreach (var obj in typedList)
+                            {
+                                if (collectionStringfy.Length > 0)
+                                    collectionStringfy += ",";
+
+                                var stringfiedObj = ConvertObjToJsonString(underlyingType, obj);
+                                collectionStringfy += stringfiedObj;
+                            }
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(collectionStringfy))
+                            stringifiedJson += "\"" + prop.Name + "\":[" + collectionStringfy + "]";
+
                     }
                 }
                 else if (prop.PropertyType.IsGenericType)
